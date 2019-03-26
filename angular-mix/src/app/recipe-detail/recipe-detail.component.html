@@ -1,0 +1,9 @@
+<div *ngIf="recipe">
+  <h2>{{recipe.name}} Details</h2>
+  <ul class="recipes">
+      <li *ngFor="let ingredient of recipe.ingredients"
+        [class.selected]="recipe === selectedRecipe">
+        <span class="badge">{{ingredient}}</span>
+      </li>
+    </ul>
+</div>
