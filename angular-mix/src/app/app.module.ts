@@ -3,19 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeComponent } from './recipe/recipe.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { RecipeSummaryComponent } from './recipe-summary/recipe-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipesComponent,
-    RecipeDetailComponent,
     RecipeComponent,
-    DashboardComponent
+    RecipeSummaryComponent
   ],
   imports: [
     BrowserModule,

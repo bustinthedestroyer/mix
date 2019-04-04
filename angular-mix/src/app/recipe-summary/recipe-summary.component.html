@@ -1,0 +1,13 @@
+<div *ngIf="recipe">
+  <h3>{{recipe.name}} Details</h3>
+  <p>
+    Time: {{recipe.cookTime}}
+  </p>
+  <p>
+    {{recipe.description}}
+  </p>
+  <a routerLink="/recipe/{{recipe.id}}">Cook it! -></a>
+</div>
+<div *ngIf="!recipe">
+  <h4><--Select a recipe.</h4>
+</div>
