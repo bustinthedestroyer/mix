@@ -1,0 +1,57 @@
+<button (click)="goBack()">go back</button>
+
+<h3>
+  Add a new recipe:
+</h3>
+
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+
+  <label>Name:
+    <input type="text" formControlName="recipeName" required>
+  </label>
+  <br />
+
+  <label>
+    Description:
+    <input type="text" formControlName="recipeDescription" required>
+  </label>
+  <br />
+
+  <label>
+    Cook Time:
+    <input type="text" formControlName="recipeCookTime" required>
+  </label>
+  <br />
+
+  <label>
+    History:
+    <input type="text" formControlName="recipeHistory">
+  </label>
+  <br />
+
+  <div formArrayName="recipeIngredients">
+    <h4>Ingredients</h4>
+    <div *ngFor="let address of recipeIngredients.controls; let i=index">
+      <label>
+          Ingredient:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+    <button (click)="addIngredient()">Add Ingredient</button>
+  </div>
+
+  <div formArrayName="recipeInstructions">
+    <h4>Instructions</h4>
+    <div *ngFor="let address of recipeInstructions.controls; let i=index">
+      <label>
+          Instruction:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+    <button (click)="addInstructions()">Add Instruction</button>
+  </div>
+
+  <br />
+  <button type="submit">Submit</button>
+
+</form>
