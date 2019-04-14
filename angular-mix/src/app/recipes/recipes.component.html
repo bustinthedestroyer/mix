@@ -1,10 +1,13 @@
-<h2>All Recipes</h2>
+<div class="wrapper">
+  <h2>All Recipes</h2>
+</div>
 
-<a routerLink="/recipes/add">Add</a>
+
 <div class="wrapper">
   <div>
-    <ul class="recipes">
-      <li *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)">
+    <ul>
+      <!-- <ul class="recipes"> -->
+      <li *ngFor="let recipe of recipes" [class.selected]="selected" (click)="onSelect(recipe)">
         <span class="badge">{{recipe.id}}</span> {{recipe.name}}
       </li>
     </ul>
@@ -12,4 +15,8 @@
   <div>
     <app-recipe-summary [recipe]="selectedRecipe"></app-recipe-summary>
   </div>
+</div>
+
+<div>
+  <button class="button" routerLink="/recipes/add">Add Recipe</button>
 </div>
