@@ -10,12 +10,6 @@ const routes: Routes = [
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/add', component: RecipeAddComponent },
   { path: 'recipes/:id', component: RecipeComponent },
-
-  // //?? Why does this not work for add recipe
-  // { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  // { path: 'recipes', component: RecipesComponent },
-  // { path: 'recipes/:id', component: RecipeComponent },
-  // { path: 'recipes/add', component: RecipeAddComponent },
 ];
 
 @NgModule({

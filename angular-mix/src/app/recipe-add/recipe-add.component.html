@@ -6,9 +6,14 @@
 
 <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
 
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Recipe Name" formControlName="recipeName">
+  </mat-form-field>
+  <!-- 
   <label>Name:
     <input type="text" formControlName="recipeName" required>
-  </label>
+  </label> -->
   <br />
 
   <label>
@@ -33,7 +38,7 @@
     <h4>Ingredients</h4>
     <div *ngFor="let address of recipeIngredients.controls; let i=index">
       <label>
-          Ingredient:
+        Ingredient:
         <input type="text" [formControlName]="i">
       </label>
     </div>
@@ -44,7 +49,7 @@
     <h4>Instructions</h4>
     <div *ngFor="let address of recipeInstructions.controls; let i=index">
       <label>
-          Instruction:
+        Instruction:
         <input type="text" [formControlName]="i">
       </label>
     </div>
