@@ -17,6 +17,7 @@ import {
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -38,9 +39,9 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     MatCardModule,
     MatListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
