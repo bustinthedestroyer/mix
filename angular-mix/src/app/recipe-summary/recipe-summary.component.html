@@ -1,13 +1,14 @@
-<div *ngIf="recipe">
-  <h3>{{recipe.name}}</h3>
-  <p>
-    Time: {{recipe.cookTime}}
-  </p>
-  <p>
-    {{recipe.description}}
-  </p>
-  <button routerLink="/recipes/{{recipe.id}}">Let's get cooking!</button>
-</div>
-<div *ngIf="!recipe">
-  <h4><i>Select a recipe.</i></h4>
-</div>
+<mat-card *ngIf="recipe" class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{recipe.name}}</mat-card-title>
+    <mat-card-subtitle>Time: {{recipe.cookTime}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{recipe.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" routerLink="/recipes/{{recipe.id}}">Let's get cooking!</button>
+  </mat-card-actions>
+</mat-card>

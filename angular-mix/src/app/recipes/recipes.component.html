@@ -1,22 +1,21 @@
-<div class="wrapper">
-  <h2>All Recipes</h2>
-</div>
+<div class="two-col">
 
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Recipes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-selection-list>
+        <mat-list-option role="listitem" *ngFor="let recipe of recipes" [class.selected]="selected" (click)="onSelect(recipe)">
+            {{recipe.name}}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-card-content>
+    <mat-card-footer>
+      <button mat-raised-button color="primary" routerLink="/recipes/add">New Recipe?</button>
+    </mat-card-footer>
+  </mat-card>
 
-<div class="wrapper">
-  <div>
-    <ul>
-      <!-- <ul class="recipes"> -->
-      <li *ngFor="let recipe of recipes" [class.selected]="selected" (click)="onSelect(recipe)">
-        <span class="badge">{{recipe.id}}</span> {{recipe.name}}
-      </li>
-    </ul>
-  </div>
-  <div>
-    <app-recipe-summary [recipe]="selectedRecipe"></app-recipe-summary>
-  </div>
-</div>
+  <app-recipe-summary [recipe]="selectedRecipe"></app-recipe-summary>
 
-<div>
-  <button class="button" routerLink="/recipes/add">Add Recipe</button>
 </div>

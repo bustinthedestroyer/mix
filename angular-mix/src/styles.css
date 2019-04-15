@@ -1,9 +1,29 @@
-body {
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.example-full-width {
+  width: 100%;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+}
+
+.one-col {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+
+/* body {
   font: 100% Helvetica, sans-serif;
   color: #61892F;
   background-color: #d6cb95;
-}
+} */
 
+
+/*
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -50,6 +70,29 @@ li .badge {
   height: 1.8em;
   margin-right: 0.8em;
   border-radius: 4px 0 0 4px;
-}
+} */
 
 /*# sourceMappingURL=styles.css.map */
+/* You can add global styles to this file, and also import other style files */
+ 
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+.example-full-width {
+  width: 100%;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+}
+
+.one-col {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+/* deeppurple-amber.css
+indigo-pink.css
+pink-bluegrey.css
+purple-green.css */

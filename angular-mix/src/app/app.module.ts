@@ -8,6 +8,15 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeSummaryComponent } from './recipe-summary/recipe-summary.component';
 import { RecipeAddComponent } from './recipe-add/recipe-add.component';
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatCardModule,
+  MatListModule
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +30,13 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
