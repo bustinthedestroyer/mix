@@ -16,6 +16,7 @@ import {
   MatListModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RecipesComponent,
     RecipeComponent,
     RecipeSummaryComponent,
-    RecipeAddComponent
+    RecipeAddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
