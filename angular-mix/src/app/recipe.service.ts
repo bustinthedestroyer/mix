@@ -17,4 +17,10 @@ export class RecipeService {
   getRecipe(id: number): Observable<Recipe> {
     return of(RECIPES.find(recipe => recipe.id === id));
   }
+
+  addRecipe(newRecipe: Recipe){
+    console.log('Adding New Recipe');
+    console.log(newRecipe);
+    RECIPES.push(newRecipe);
+  }
 }

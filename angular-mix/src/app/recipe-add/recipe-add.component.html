@@ -1,57 +1,58 @@
-<h3>
-  New Recipe
-</h3>
-
 <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>New Recipe</mat-card-title>
+    </mat-card-header>
 
-  <div class="two-col">
-    <mat-form-field>
-      <input matInput placeholder="Recipe Name" formControlName="recipeName" />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Cook Time" formControlName="recipeCookTime" />
-    </mat-form-field>
-  </div>
+    <div class="two-col">
+      <mat-form-field>
+        <input matInput placeholder="Recipe Name" formControlName="recipeName" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Cook Time" formControlName="recipeCookTime" />
+      </mat-form-field>
+    </div>
 
-  <div class="one-col">
-    <mat-form-field>
-      <textarea matInput placeholder="Description" formControlName="recipeDescription"></textarea>
-    </mat-form-field>
-  </div>
+    <div class="one-col">
+      <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="recipeDescription"></textarea>
+      </mat-form-field>
+    </div>
 
-  <div class="two-col">
-    <mat-card>
-      <div formArrayName="recipeIngredients">
-        <div *ngFor="let address of recipeIngredients.controls; let i=index">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Ingredient" type="text" [formControlName]="i">
-          </mat-form-field>
+    <div class="two-col">
+      <mat-card>
+        <div formArrayName="recipeIngredients">
+          <div *ngFor="let address of recipeIngredients.controls; let i=index">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Ingredient" type="text" [formControlName]="i">
+            </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary" (click)="addIngredient()">Add Ingredient</button>
         </div>
-        <button mat-raised-button color="primary" (click)="addIngredient()">Add Ingredient</button>
-      </div>
-    </mat-card>
-    <mat-card>
-      <div formArrayName="recipeInstructions">
-        <div *ngFor="let address of recipeInstructions.controls; let i=index">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Instruction" type="text" [formControlName]="i">
-          </mat-form-field>
+      </mat-card>
+      <mat-card>
+        <div formArrayName="recipeInstructions">
+          <div *ngFor="let address of recipeInstructions.controls; let i=index">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Instruction" type="text" [formControlName]="i">
+            </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary" (click)="addInstructions()">Add Instruction</button>
         </div>
-        <button mat-raised-button color="primary" (click)="addInstructions()">Add Instruction</button>
+      </mat-card>
+    </div>
+
+    <div class="one-col">
+      <mat-form-field>
+        <textarea matInput placeholder="History" formControlName="recipeHistory"></textarea>
+      </mat-form-field>
+    </div>
+
+    <mat-card-actions>
+      <div class="two-col">
+        <button mat-raised-button color="warn" (click)="goBack()">Back</button>
+        <button type="submit" mat-raised-button color="primary">Add Recipe</button>
       </div>
-    </mat-card>
-  </div>
-
-  <div class="one-col">
-    <mat-form-field>
-      <textarea matInput placeholder="History" formControlName="recipeHistory"></textarea>
-    </mat-form-field>
-  </div>
-
-  <div class="two-col">
-    <button mat-raised-button color="warn" (click)="goBack()">Back</button>
-    <button type="submit" mat-raised-button color="primary">Add Recipe</button>
-  </div>
-
-
+    </mat-card-actions>
+  </mat-card>
 </form>

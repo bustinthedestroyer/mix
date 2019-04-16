@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormArray, Validators } from '@angular/forms';
-//import { Recipe } from '../recipe';
+import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-recipe-add',
@@ -39,16 +40,30 @@ export class RecipeAddComponent implements OnInit {
 
   constructor(
     private location: Location,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private recipeService: RecipeService
   ) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.recipeForm.value);
-    console.log(this.recipeForm.status);
+    if(this.recipeForm.status == "VALID"){
+      this.recipeService.addRecipe((this.recipeForm.value as Recipe));
+    }else{
+      console.log('Recipe not valid');
+    }    
   }
+
+  // turnFormDataIntoRecipeObject(){
+  //   try{
+  //     let newRecipe : Recipe = {
+  //       recipeName = this.recipeForm.controls['recipeName']
+  //     }
+  //   }catch{
+  //     console.log('Could not make a recipe')
+  //   }
+  // }
 
   ////?? Make a reusable back button component?
   goBack(): void {

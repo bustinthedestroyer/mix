@@ -5,15 +5,15 @@
       <mat-card-title>Recipes</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-selection-list>
-        <mat-list-option role="listitem" *ngFor="let recipe of recipes" [class.selected]="selected" (click)="onSelect(recipe)">
+      <mat-action-list>
+        <mat-list-item *ngFor="let recipe of recipes" [class.selected]="selected" (click)="onSelect(recipe)">
             {{recipe.name}}
-        </mat-list-option>
-      </mat-selection-list>
+        </mat-list-item>
+      </mat-action-list>
     </mat-card-content>
-    <mat-card-footer>
+    <mat-card-actions>
       <button mat-raised-button color="primary" routerLink="/recipes/add">New Recipe?</button>
-    </mat-card-footer>
+    </mat-card-actions>
   </mat-card>
 
   <app-recipe-summary [recipe]="selectedRecipe"></app-recipe-summary>
