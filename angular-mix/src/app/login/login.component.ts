@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     ////TODO auth here
     let isAuthenticated = true;
     if (isAuthenticated) {
-      this.cookieService.set( 'Auth', 'AuthToken' );
+      this.cookieService.set('Auth', 'AuthToken');
       this.router.navigate(["/recipes"]);
     }
   }

@@ -6,52 +6,52 @@
 
     <div class="two-col">
       <mat-form-field>
-        <input matInput placeholder="Recipe Name" formControlName="recipeName" />
+        <input matInput placeholder="Recipe Name" formControlName="name" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Cook Time" formControlName="recipeCookTime" />
+        <input matInput placeholder="Cook Time" formControlName="cookTime" />
       </mat-form-field>
     </div>
 
     <div class="one-col">
       <mat-form-field>
-        <textarea matInput placeholder="Description" formControlName="recipeDescription"></textarea>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
       </mat-form-field>
     </div>
 
     <div class="two-col">
       <mat-card>
-        <div formArrayName="recipeIngredients">
+        <div formArrayName="ingredients">
           <div *ngFor="let address of recipeIngredients.controls; let i=index">
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Ingredient" type="text" [formControlName]="i">
             </mat-form-field>
           </div>
-          <button mat-raised-button color="primary" (click)="addIngredient()">Add Ingredient</button>
+          <button type="button" mat-raised-button color="primary" (click)="addIngredient()">Add Ingredient</button>
         </div>
       </mat-card>
       <mat-card>
-        <div formArrayName="recipeInstructions">
+        <div formArrayName="instructions">
           <div *ngFor="let address of recipeInstructions.controls; let i=index">
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Instruction" type="text" [formControlName]="i">
             </mat-form-field>
           </div>
-          <button mat-raised-button color="primary" (click)="addInstructions()">Add Instruction</button>
+          <button type="button" mat-raised-button color="primary" (click)="addInstructions()">Add Instruction</button>
         </div>
       </mat-card>
     </div>
 
     <div class="one-col">
       <mat-form-field>
-        <textarea matInput placeholder="History" formControlName="recipeHistory"></textarea>
+        <textarea matInput placeholder="History" formControlName="history"></textarea>
       </mat-form-field>
     </div>
 
     <mat-card-actions>
       <div class="two-col">
-        <button mat-raised-button color="warn" (click)="goBack()">Back</button>
-        <button type="submit" mat-raised-button color="primary">Add Recipe</button>
+        <button type="button" mat-raised-button color="warn" (click)="goBack()">Back</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!recipeForm.valid">Add Recipe</button>
       </div>
     </mat-card-actions>
   </mat-card>

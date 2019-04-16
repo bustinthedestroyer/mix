@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-recipe-add',
@@ -13,26 +14,25 @@ import { Recipe } from '../recipe';
 export class RecipeAddComponent implements OnInit {
 
   recipeForm = this.formBuilder.group({
-    recipeName: ['', Validators.required],
-    recipeDescription: ['', Validators.required],
-    recipeCookTime: ['', Validators.required],
-    recipeHistory: [''],
-    //?? Form Array Validators
-    recipeIngredients: this.formBuilder.array([
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    cookTime: ['', Validators.required],
+    history: [''],
+    ingredients: this.formBuilder.array([
       this.formBuilder.control('')
-    ]),
-    recipeInstructions: this.formBuilder.array([
-      this.formBuilder.control('')
-    ])
+    ], Validators.minLength(1)),
+    instructions: this.formBuilder.array([
+      this.formBuilder.control('', Validators.required)
+    ], Validators.minLength(1))
   });
   get recipeIngredients() {
-    return this.recipeForm.get('recipeIngredients') as FormArray;
+    return this.recipeForm.get('ingredients') as FormArray;
   }
   addIngredient() {
     this.recipeIngredients.push(this.formBuilder.control(''));
   }
   get recipeInstructions() {
-    return this.recipeForm.get('recipeInstructions') as FormArray;
+    return this.recipeForm.get('instructions') as FormArray;
   }
   addInstructions() {
     this.recipeInstructions.push(this.formBuilder.control(''));
@@ -41,18 +41,20 @@ export class RecipeAddComponent implements OnInit {
   constructor(
     private location: Location,
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private router: Router
   ) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    if(this.recipeForm.status == "VALID"){
-      this.recipeService.addRecipe((this.recipeForm.value as Recipe));
-    }else{
+    if (this.recipeForm.valid) {
+      this.recipeService.addRecipe((this.recipeForm.value));
+      this.router.navigate(["/recipes"]);
+    } else {
       console.log('Recipe not valid');
-    }    
+    }
   }
 
   // turnFormDataIntoRecipeObject(){

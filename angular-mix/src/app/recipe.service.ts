@@ -18,9 +18,16 @@ export class RecipeService {
     return of(RECIPES.find(recipe => recipe.id === id));
   }
 
-  addRecipe(newRecipe: Recipe){
+  addRecipe(newRecipe: Recipe) {
     console.log('Adding New Recipe');
+
+    newRecipe.id = this.GenerateRecipeId();
     console.log(newRecipe);
     RECIPES.push(newRecipe);
   }
+
+  GenerateRecipeId(): number {
+    return RECIPES.length + 1;
+  }
+
 }
