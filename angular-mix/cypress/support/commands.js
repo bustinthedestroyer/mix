@@ -23,3 +23,22 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("autoAuthenticate", (email, password) => {
+  cy.clearCookies()
+  cy.setCookie('Auth', 'AuthToken')
+  //   cy.request({
+  //     method: 'POST',
+  //     url: Cypress.env("baseUrl") + 'api/users/login',
+  //     body: {
+  //       email: email,
+  //       password: password,
+  //       remember: false
+  //     }
+  //   }).then((loginResponse) => {
+  //     var encodedAuthToken = encodeURIComponent(btoa(JSON.stringify({
+  //       'id': loginResponse.body.id
+  //     })))
+  //    cy.setCookie('u', encodedAuthToken)
+  //   })
+})
